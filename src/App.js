@@ -44,8 +44,8 @@ class UrlForm extends Component {
       this.urlInput.current.value = '';
     });
 
-
   }
+  
 
   render() {
     const { url, urlList } = this.state;
@@ -65,7 +65,11 @@ class UrlForm extends Component {
         </form>
         <ul>
           {urlList.map((url, index) => (
-            <li key={index}>{url.short_url}</li>
+            <li key={index}>
+              <p>url: {url.url}</p>
+              <p>short: {url.short_url}</p>
+              <p>slug: {url.slug}</p>
+            </li>
           ))}
         </ul>
       </div>
