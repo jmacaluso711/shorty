@@ -14,6 +14,15 @@ const ButtonPrimary = styled.button`
   &:hover {
     background-color: ${props => props.theme.primaryDark};
   }
+
+  &[disabled] {
+    opacity: 0.75;
+    cursor: auto;
+
+    &:hover {
+      background-color: ${props => props.theme.primary};
+    }
+  }
 `;
 
 const ButtonIcon = styled.button`

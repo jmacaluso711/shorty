@@ -101,6 +101,7 @@ export default class UrlForm extends Component {
             value={url}
             placeholder="Enter URL"
             onChange={this.onChange}
+            required
           />
           <input
             ref={this.urlSlug}
@@ -110,7 +111,7 @@ export default class UrlForm extends Component {
             placeholder="Enter Slug (optional)"
             onChange={this.onChange}
           />
-          <ButtonPrimary type="submit">Submit</ButtonPrimary>
+          <ButtonPrimary type="submit" disabled={this.state.url === ''}>Submit</ButtonPrimary>
         </Form>
         <UrlList>
           {urlList.map((url, index) => (
