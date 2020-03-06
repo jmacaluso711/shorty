@@ -1,147 +1,49 @@
-import React, { Component, createRef } from 'react';
+import React from 'react';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
-const PROXY = `https://cors-anywhere.herokuapp.com/`;
-const API_URL = `http://api.bely.me`;
-const API_KEY = `5d51945e59e81470096ed99540d1771e`;
-const headers = {
-  'GB-Access-Token': `${API_KEY}`,
-  'Content-Type': 'application/json',
-};
+import UrlForm from './components/UrlForm';
 
-const UrlDetail = ({ url, removeUrl }) => (
-  <li>
-    <p>url: {url.url}</p>
-    <p>short: {url.short_url}</p>
-    <p>slug: {url.slug}</p>
-    <button onClick={() => removeUrl(url)}>delete</button>
-  </li>
-);
-
-class UrlForm extends Component {
-  state = {
-    url: '',
-    slug: '',
-    urlList: []
-  }
-
-  constructor(props) {
-    super(props)
-    this.urlInput = createRef();
-    this.urlSlug = createRef();
-  }
-
-  async componentDidMount() {
-    this.loadUrls();
-  }
-
-  loadUrls = async () => {
-    try {
-      const blob = await fetch(`${PROXY}${API_URL}/links`, {
-        headers: headers
-      });
-      const res = await blob.json();
-      this.setState({
-        urlList: [...res]
-      });
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-  onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-
-  onSubmit = async (e) => {
-    e.preventDefault();
-
-    const { url, slug } = this.state;
-    let params;
-
-    if (slug !== '') {
-      params = { url, slug };
-    } else {
-      params = { url }
-    }
-
-    const options = {
-      method: 'POST',
-      headers: headers,
-      body: JSON.stringify(params)
-    } 
-
-    try {
-      const blob = await fetch(`${PROXY}${API_URL}/links`, options);
-      const res = await blob.json();
-      this.setState({
-        urlList: [...this.state.urlList, res]
-      });
-      this.urlInput.current.value = '';
-      this.urlSlug.current.value = '';
-    } catch(err) {
-      console.error(err);
-    }
-
-  }
-  
-  removeUrl = async (url) => {
-    const options = {
-      method: 'DELETE',
-      headers: headers,
-    }
-
-    try {
-      const blob = await fetch(`${PROXY}${API_URL}/links/${url.slug}`, options);
-      if (blob.status === 204) {
-        this.loadUrls();
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-  render() {
-    const { url, slug, urlList } = this.state;
-
-    return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <input 
-            ref={this.urlInput}
-            type="text" 
-            name="url"
-            value={url}
-            placeholder="Enter URL"
-            onChange={this.onChange}
-          />
-          <input
-            ref={this.urlSlug}
-            type="text"
-            name="slug"
-            value={slug}
-            placeholder="Enter Slug (optional)"
-            onChange={this.onChange}
-          />
-          <button type="submit">Submit</button>
-        </form>
-        <ul>
-          {urlList.map((url, index) => (
-            <UrlDetail key={index} url={url} removeUrl={this.removeUrl}/>
-          ))}
-        </ul>
-      </div>
-    )
-  }
+const theme = {
+  red: '#FF0000',
+  black: '#393939',
+  grey: '#3A3A3A',
+  lightgrey: '#E1E1E1',
+  offWhite: '#EDEDED',
+  maxWidth: '1000px',
+  bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
 }
 
-
-
+const GlobalStyle = createGlobalStyle`
+  html {
+    box-sizing: border-box;
+    font-size: 10px;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a {
+    text-decoration: none;
+    color: ${theme.black};
+  }
+`;
 
 function App() {
   return (
-    <div className="App">
-      <UrlForm />
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <div className="App">
+        <UrlForm />
+      </div>
+    </ThemeProvider>
   );
 }
 
