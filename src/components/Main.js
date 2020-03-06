@@ -4,6 +4,8 @@ import UrlList from './styles/UrlListStyles';
 import UrlDetail from './UrlDetail';
 import { ButtonPrimary } from './styles/ButtonStyles';
 import { Form } from './styles/UrlFormStyles';
+import { MainLayout, FormLayout, UrlsLayout } from './styles/LayoutStyles';
+
 
 export default class Main extends Component {
   state = {
@@ -93,8 +95,8 @@ export default class Main extends Component {
     const { url, slug, urlList } = this.state;
 
     return (
-      <main>
-        <section>
+      <MainLayout>
+        <FormLayout>
           <Form onSubmit={this.onSubmit}>
             <input
               ref={this.urlInput}
@@ -115,16 +117,16 @@ export default class Main extends Component {
             />
             <ButtonPrimary type="submit" disabled={this.state.url === ''}>Submit</ButtonPrimary>
           </Form>
-        </section>
-        <section>
+        </FormLayout>
+        <UrlsLayout>
           <h2>All Links</h2>
           <UrlList>
             {urlList.map((url, index) => (
               <UrlDetail key={index} url={url} removeUrl={this.removeUrl} />
             ))}
           </UrlList>
-        </section>
-      </main>
+        </UrlsLayout>
+      </MainLayout>
     )
   }
 }
