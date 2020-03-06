@@ -4,11 +4,15 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import UrlForm from './components/UrlForm';
 
 const theme = {
-  red: '#FF0000',
-  black: '#393939',
-  grey: '#3A3A3A',
-  lightgrey: '#E1E1E1',
-  offWhite: '#EDEDED',
+  primary: '#667EEA',
+  primarydark: '#5A67D8',
+  secondary: '#ED64A6',
+  secondaryDark: '#D53F8C',
+  red: '#E53E3E',
+  black: '#1A202C',
+  grey: '#2D3748',
+  lightgrey: '#718096',
+  offWhite: '#F7FAFC',
   maxWidth: '1000px',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
 }
@@ -18,9 +22,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-size: 10px;
   }
+  
   *, *:before, *:after {
     box-sizing: inherit;
   }
+
   body {
     margin: 0;
     padding: 0;
@@ -29,7 +35,18 @@ const GlobalStyle = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: ${theme.offWhite};
   }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
   a {
     text-decoration: none;
     color: ${theme.black};
