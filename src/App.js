@@ -61,9 +61,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <div className="App">
+      <React.Fragment>
         <UrlForm />
-      </div>
+      </React.Fragment>
     </ThemeProvider>
   );
 }

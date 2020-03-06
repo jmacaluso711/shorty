@@ -9,7 +9,8 @@ export default class UrlForm extends Component {
   state = {
     url: '',
     slug: '',
-    urlList: []
+    urlList: [],
+    loading: false
   }
 
   constructor(props) {
@@ -92,33 +93,38 @@ export default class UrlForm extends Component {
     const { url, slug, urlList } = this.state;
 
     return (
-      <div>
-        <Form onSubmit={this.onSubmit}>
-          <input
-            ref={this.urlInput}
-            type="text"
-            name="url"
-            value={url}
-            placeholder="Enter URL"
-            onChange={this.onChange}
-            required
-          />
-          <input
-            ref={this.urlSlug}
-            type="text"
-            name="slug"
-            value={slug}
-            placeholder="Enter Slug (optional)"
-            onChange={this.onChange}
-          />
-          <ButtonPrimary type="submit" disabled={this.state.url === ''}>Submit</ButtonPrimary>
-        </Form>
-        <UrlList>
-          {urlList.map((url, index) => (
-            <UrlDetail key={index} url={url} removeUrl={this.removeUrl} />
-          ))}
-        </UrlList>
-      </div>
+      <main>
+        <section>
+          <Form onSubmit={this.onSubmit}>
+            <input
+              ref={this.urlInput}
+              type="text"
+              name="url"
+              value={url}
+              placeholder="Enter URL"
+              onChange={this.onChange}
+              required
+            />
+            <input
+              ref={this.urlSlug}
+              type="text"
+              name="slug"
+              value={slug}
+              placeholder="Enter Slug (optional)"
+              onChange={this.onChange}
+            />
+            <ButtonPrimary type="submit" disabled={this.state.url === ''}>Submit</ButtonPrimary>
+          </Form>
+        </section>
+        <section>
+          <h2>All Links</h2>
+          <UrlList>
+            {urlList.map((url, index) => (
+              <UrlDetail key={index} url={url} removeUrl={this.removeUrl} />
+            ))}
+          </UrlList>
+        </section>
+      </main>
     )
   }
 }
