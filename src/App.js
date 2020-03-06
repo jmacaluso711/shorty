@@ -5,16 +5,20 @@ import UrlForm from './components/UrlForm';
 
 const theme = {
   primary: '#667EEA',
-  primarydark: '#5A67D8',
+  primaryDark: '#5A67D8',
   secondary: '#ED64A6',
   secondaryDark: '#D53F8C',
-  red: '#E53E3E',
+  tertiary: '#E53E3E',
   black: '#1A202C',
-  grey: '#2D3748',
-  lightgrey: '#718096',
-  offWhite: '#F7FAFC',
-  maxWidth: '1000px',
-  bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
+  white: '#fff',
+  gray800: '#2D3748',
+  gray600: '#718096',
+  gray400: '#CBD5E0',
+  gray100: '#F7FAFC',
+  maxWidth: '1024px',
+  boxShadow: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
+  borderRadius: '4px',
+  borderRadiusSm: '2px'
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -35,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: ${theme.offWhite};
+    background-color: ${theme.gray100};
   }
 
   ul {

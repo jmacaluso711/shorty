@@ -1,11 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { AiFillDelete } from "react-icons/ai";
+import { ButtonIcon } from './styles/ButtonStyles';
 
 const UrlDetail = ({ url, removeUrl }) => (
   <li>
-    <p>url: {url.url}</p>
-    <p>short: {url.short_url}</p>
-    <p>slug: {url.slug}</p>
-    <button onClick={() => removeUrl(url)}>delete</button>
+    <div>
+      <h2>{url.url}</h2>
+      <p><a href="{url.short_url}">{url.short_url}</a></p>
+      <p>{url.slug}</p>
+    </div>
+    <ButtonIcon onClick={() => removeUrl(url)}><AiFillDelete /></ButtonIcon>
   </li>
 );
 

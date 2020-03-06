@@ -1,6 +1,9 @@
 import React, { Component, createRef } from 'react';
 import { PROXY, API_URL, HEADERS } from '../constants';
+import UrlList from './styles/UrlListStyles';
 import UrlDetail from './UrlDetail';
+import { ButtonPrimary } from './styles/ButtonStyles';
+import { Form } from './styles/UrlFormStyles';
 
 export default class UrlForm extends Component {
   state = {
@@ -90,7 +93,7 @@ export default class UrlForm extends Component {
 
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
+        <Form onSubmit={this.onSubmit}>
           <input
             ref={this.urlInput}
             type="text"
@@ -107,13 +110,13 @@ export default class UrlForm extends Component {
             placeholder="Enter Slug (optional)"
             onChange={this.onChange}
           />
-          <button type="submit">Submit</button>
-        </form>
-        <ul>
+          <ButtonPrimary type="submit">Submit</ButtonPrimary>
+        </Form>
+        <UrlList>
           {urlList.map((url, index) => (
             <UrlDetail key={index} url={url} removeUrl={this.removeUrl} />
           ))}
-        </ul>
+        </UrlList>
       </div>
     )
   }
