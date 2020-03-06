@@ -5,7 +5,7 @@ import UrlDetail from './UrlDetail';
 import { ButtonPrimary } from './styles/ButtonStyles';
 import { Form } from './styles/UrlFormStyles';
 
-export default class UrlForm extends Component {
+export default class Main extends Component {
   state = {
     url: '',
     slug: '',

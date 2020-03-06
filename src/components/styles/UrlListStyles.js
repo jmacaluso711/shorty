@@ -19,7 +19,8 @@ const UrlList = styled.ul`
     }
   }
 
-  h2 {
+  h3 {
+    font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 0;
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
-import UrlForm from './components/UrlForm';
+import Main from './components/Main';
 
 const theme = {
   primary: '#667EEA',
@@ -62,7 +62,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <React.Fragment>
-        <UrlForm />
+        <Main />
       </React.Fragment>
     </ThemeProvider>
   );
