@@ -7,7 +7,7 @@ const ButtonPrimary = styled.button`
   font-weight: bold;
   font-size: 1.25rem;
   border-radius: ${props => props.theme.borderRadius};
-  padding: 1rem 1.5rem;
+  padding: 1rem 2.5rem;
   cursor: pointer;
   transition: background 0.2s ease;
   
@@ -26,14 +26,20 @@ const ButtonPrimary = styled.button`
 `;
 
 const ButtonIcon = styled.button`
-  border: none;
   color: ${props => props.theme.gray600};
+  border: 1px solid transparent;
+  border-radius: ${props => props.theme.borderRadiusSm};
   padding: 0;
   cursor: pointer;
 
   svg {
     width: 20px;
     height: 20px;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: ${props => props.theme.gray600};
   }
 `;
 

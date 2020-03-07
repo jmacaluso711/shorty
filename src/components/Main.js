@@ -97,26 +97,30 @@ export default class Main extends Component {
     return (
       <MainLayout>
         <FormLayout>
-          <Form onSubmit={this.onSubmit}>
-            <input
-              ref={this.urlInput}
-              type="text"
-              name="url"
-              value={url}
-              placeholder="Enter URL"
-              onChange={this.onChange}
-              required
-            />
-            <input
-              ref={this.urlSlug}
-              type="text"
-              name="slug"
-              value={slug}
-              placeholder="Enter Slug (optional)"
-              onChange={this.onChange}
-            />
-            <ButtonPrimary type="submit" disabled={this.state.url === ''}>Submit</ButtonPrimary>
-          </Form>
+          <div>
+            <h1>Hey, Shorty</h1>
+            <p>Welcome back, enter your url below and we'll shorten it.</p>
+            <Form onSubmit={this.onSubmit}>
+              <input
+                ref={this.urlInput}
+                type="text"
+                name="url"
+                value={url}
+                placeholder="Enter URL"
+                onChange={this.onChange}
+                required
+              />
+              <input
+                ref={this.urlSlug}
+                type="text"
+                name="slug"
+                value={slug}
+                placeholder="Enter Slug (optional)"
+                onChange={this.onChange}
+              />
+              <ButtonPrimary type="submit" disabled={this.state.url === ''}>Submit</ButtonPrimary>
+            </Form>
+          </div>
         </FormLayout>
         <UrlsLayout>
           <h2>All Links</h2>

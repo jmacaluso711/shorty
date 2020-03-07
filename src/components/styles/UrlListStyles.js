@@ -9,6 +9,11 @@ const UrlList = styled.ul`
     padding: 1rem;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid ${props => props.theme.gray400};
+
+    &:last-child {
+      border-bottom: none;
+    }
 
     div {
       flex: 1;

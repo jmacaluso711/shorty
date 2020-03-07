@@ -12,6 +12,7 @@ const theme = {
   black: '#1A202C',
   white: '#fff',
   gray800: '#2D3748',
+  gray700: '#4A5568',
   gray600: '#718096',
   gray400: '#CBD5E0',
   gray100: '#F7FAFC',
@@ -39,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: ${theme.gray100};
+    background-color: ${theme.gray800};
   }
 
   ul {
