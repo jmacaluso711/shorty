@@ -1,6 +1,6 @@
 import React, { Component, createRef } from 'react';
-import ClipLoader from "react-spinners/ClipLoader";
 import { PROXY, API_URL, HEADERS } from '../constants';
+import ClipLoader from "react-spinners/ClipLoader";
 import UrlList from './styles/UrlListStyles';
 import { MainLayout, FormLayout, UrlsLayout } from './styles/LayoutStyles';
 import UrlDetail from './UrlDetail';
