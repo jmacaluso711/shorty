@@ -1,3 +1,24 @@
+# Url Shortener
+
+## Getting started
+
+* Bootstrapped with `create-react-app` using `node v12.4.0`
+* To run locally clone this repo `cd shorty` and `npm start`
+* There's a live version of the app running here for reference.
+
+## Notes
+
+* Using a [proxy](https://cors-anywhere.herokuapp.com/) to get around some CORs issues.
+* All styling is done with styled components
+* Chose to focus on overall UX which and in turn sacrificed time spent on testing.
+
+## Todos
+
+* Add tests for all components
+* Add copy to clipboard button
+
+-----
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
