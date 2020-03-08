@@ -26,9 +26,10 @@ const ButtonPrimary = styled.button`
 `;
 
 const ButtonIcon = styled.button`
-  color: ${props => props.theme.gray600};
+  color: ${props => props.color ? props.color : props.theme.gray600};
   border: 1px solid transparent;
   border-radius: ${props => props.theme.borderRadiusSm};
+  background-color: transparent;
   padding: 0;
   cursor: pointer;
   transition: color 0.2s ease;

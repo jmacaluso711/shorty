@@ -1,9 +1,12 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
 
-const Form = styled.form`
+const Form = styled(animated.form)`
   display: flex;
   align-items: center;
   flex-direction: column;
+  position: relative;
+  z-index: 2;
 
   @media(min-width: 600px) {
     flex-direction: row;

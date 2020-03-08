@@ -4,7 +4,6 @@ const MainLayout = styled.main`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
   padding: 0 1rem;
 
@@ -32,6 +31,10 @@ const FormLayout = styled.section`
     margin-top: .75rem;
     margin-bottom: 3rem;
   }
+
+  > div {
+    position: relative;
+  }
 `;
 
 const UrlsLayout = styled.section`
@@ -42,10 +45,26 @@ const UrlsLayout = styled.section`
   border-radius: 20px;
   overflow-y: scroll;
 
+  > div {
+    max-width: 100%;
+    
+    @media(min-width: 860px) {
+      max-width: 600px;
+    }
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.75rem;
+    height: 40px;
+  }
+
   h2 {
     font-size: 2rem;
     margin-top: 0;
-    margin-bottom: 1.75rem;
+    margin-bottom: 0;
+    flex: 1;
   }
 `;
 

@@ -10,6 +10,7 @@ const UrlList = styled.ul`
     display: flex;
     align-items: center;
     border-bottom: 1px solid ${props => props.theme.gray400};
+    position: relative;
 
     &:last-child {
       border-bottom: none;
