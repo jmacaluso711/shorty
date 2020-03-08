@@ -2,7 +2,15 @@ import styled from 'styled-components';
 
 const MainLayout = styled.main`
   display: flex;
+  flex-direction: column;
   height: 100vh;
+  max-width: ${props => props.theme.maxWidth};
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media(min-width: 860px) {
+    flex-direction: row;
+  }
 `;
 
 const FormLayout = styled.section`
@@ -29,9 +37,10 @@ const FormLayout = styled.section`
 const UrlsLayout = styled.section`
   flex: 1;
   padding: 4rem;
-  margin: 1rem;
+  margin: 1rem 0;
   background-color: ${props => props.theme.white};
   border-radius: 20px;
+  overflow-y: scroll;
 
   h2 {
     font-size: 2rem;
@@ -39,5 +48,6 @@ const UrlsLayout = styled.section`
     margin-bottom: 1.75rem;
   }
 `;
+
 
 export { MainLayout, FormLayout, UrlsLayout };

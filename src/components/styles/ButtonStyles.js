@@ -7,7 +7,7 @@ const ButtonPrimary = styled.button`
   font-weight: bold;
   font-size: 1.25rem;
   border-radius: ${props => props.theme.borderRadius};
-  padding: 1rem 2.5rem;
+  padding: 1.5rem 2.5rem;
   cursor: pointer;
   transition: background 0.2s ease;
   
@@ -31,15 +31,19 @@ const ButtonIcon = styled.button`
   border-radius: ${props => props.theme.borderRadiusSm};
   padding: 0;
   cursor: pointer;
+  transition: color 0.2s ease;
 
   svg {
     width: 20px;
     height: 20px;
   }
 
+  &:hover {
+    color: ${props => props.theme.gray800};
+  }
+
   &:focus {
     outline: none;
-    border-color: ${props => props.theme.gray600};
   }
 `;
 

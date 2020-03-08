@@ -16,7 +16,7 @@ const theme = {
   gray600: '#718096',
   gray400: '#CBD5E0',
   gray100: '#F7FAFC',
-  maxWidth: '1024px',
+  maxWidth: '1280px',
   boxShadow: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
   borderRadius: '4px',
   borderRadiusSm: '2px'

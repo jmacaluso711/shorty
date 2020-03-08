@@ -1,18 +1,23 @@
 import React, { Component, createRef } from 'react';
 import { PROXY, API_URL, HEADERS } from '../constants';
 import UrlList from './styles/UrlListStyles';
-import UrlDetail from './UrlDetail';
 import { ButtonPrimary } from './styles/ButtonStyles';
-import { Form } from './styles/UrlFormStyles';
+import { Form, Actions } from './styles/UrlFormStyles';
 import { MainLayout, FormLayout, UrlsLayout } from './styles/LayoutStyles';
+import ClipLoader from "react-spinners/ClipLoader";
+import UrlDetail from './UrlDetail';
 
+const CurrentUrl = ({urlList}) => (
+  <div></div>
+);
 
 export default class Main extends Component {
   state = {
     url: '',
     slug: '',
     urlList: [],
-    loading: false
+    loading: false,
+    isRemoving: false,
   }
 
   constructor(props) {
@@ -62,11 +67,13 @@ export default class Main extends Component {
     }
 
     try {
+      this.setState({ loading: true });
       const blob = await fetch(`${PROXY}${API_URL}/links`, options);
       const res = await blob.json();
       this.setState({
         urlList: [...this.state.urlList, res]
       });
+      this.setState({ loading: false, url: '' });
       this.urlInput.current.value = '';
       this.urlSlug.current.value = '';
     } catch (err) {
@@ -82,18 +89,19 @@ export default class Main extends Component {
     }
 
     try {
+      this.setState({ isRemoving: true });
       const blob = await fetch(`${PROXY}${API_URL}/links/${url.slug}`, options);
       if (blob.status === 204) {
         this.loadUrls();
       }
+      this.setState({ isRemoving: false });
     } catch (err) {
       console.error(err);
     }
   }
 
   render() {
-    const { url, slug, urlList } = this.state;
-
+    const { url, slug, urlList, loading, isRemoving } = this.state;
     return (
       <MainLayout>
         <FormLayout>
@@ -118,15 +126,19 @@ export default class Main extends Component {
                 placeholder="Enter Slug (optional)"
                 onChange={this.onChange}
               />
-              <ButtonPrimary type="submit" disabled={this.state.url === ''}>Submit</ButtonPrimary>
+              <Actions>
+                {loading && <ClipLoader color={'#CBD5E0'}/>}
+                {!loading && <ButtonPrimary type="submit" disabled={!this.state.url}>Submit</ButtonPrimary>}
+              </Actions>
             </Form>
+            <CurrentUrl urlList={urlList}/>
           </div>
         </FormLayout>
         <UrlsLayout>
           <h2>All Links</h2>
           <UrlList>
             {urlList.map((url, index) => (
-              <UrlDetail key={index} url={url} removeUrl={this.removeUrl} />
+              <UrlDetail key={index} url={url} removeUrl={this.removeUrl} isRemoving={isRemoving} />
             ))}
           </UrlList>
         </UrlsLayout>

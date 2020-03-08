@@ -20,7 +20,11 @@ const UrlList = styled.ul`
     }
 
     a {
-      color: ${props => props.theme.secondary}
+      color: ${props => props.theme.secondary};
+      
+      &:hover {
+        color: ${props => props.theme.secondaryDark}
+      }
     }
   }
 
