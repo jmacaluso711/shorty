@@ -4,7 +4,7 @@
 
 * Bootstrapped with `create-react-app` using `node v12.4.0`
 * To run locally clone this repo `cd shorty` and `npm start`
-* There's a live version of the app running here for reference.
+* There's a live version of the app running [here](https://quizzical-brown-0cc6a2.netlify.com/) for reference.
 
 ## Notes
 
@@ -16,6 +16,7 @@
 
 * Add tests for all components
 * Add copy to clipboard button
+* More robust error handling and form validation
 
 -----
 
