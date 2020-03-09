@@ -40,7 +40,7 @@ const ButtonIcon = styled.button`
   }
 
   &:hover {
-    color: ${props => props.theme.gray800};
+    color: ${props => props.hoverColor ? props.hoverColor : props.theme.gray800};;
   }
 
   &:focus {

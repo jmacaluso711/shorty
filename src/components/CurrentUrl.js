@@ -9,14 +9,14 @@ const CurrentUrl = ({ url, toggled, closeCurrent }) => {
     opacity: toggled ? 1 : 0
   });
   return (
-    <CurrentUrlStyles style={fade}>
+    <CurrentUrlContainer style={fade}>
       <div>{url.short_url}</div>
-      <ButtonIcon onClick={closeCurrent}><AiFillCloseCircle /></ButtonIcon>
-    </CurrentUrlStyles>
+      <ButtonIcon onClick={closeCurrent} hoverColor='#CBD5E0'><AiFillCloseCircle /></ButtonIcon>
+    </CurrentUrlContainer>
   )
 };
 
-const CurrentUrlStyles = styled(animated.div)`
+const CurrentUrlContainer = styled(animated.div)`
   position: absolute;
   color: ${props => props.theme.white};
   font-size: 1.5rem;

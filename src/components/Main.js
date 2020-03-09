@@ -1,8 +1,8 @@
 import React, { Component, createRef } from 'react';
 import { PROXY, API_URL, HEADERS } from '../constants';
-import ClipLoader from "react-spinners/ClipLoader";
-import UrlList from './styles/UrlListStyles';
+import styled from 'styled-components';
 import { MainLayout, FormLayout, UrlsLayout } from './styles/LayoutStyles';
+import ClipLoader from "react-spinners/ClipLoader";
 import UrlDetail from './UrlDetail';
 import CurrentUrl from './CurrentUrl';
 import UrlForm from './UrlForm';
@@ -111,6 +111,10 @@ export default class Main extends Component {
     this.urlSlug.current.value = '';
   }
 
+  copyToClip = (e) => {
+    console.log('copy');
+  }
+
   render() {
     const { 
       url, 
@@ -139,7 +143,12 @@ export default class Main extends Component {
               loading={loading}
               toggled={formToggled}
             />
-            <CurrentUrl url={currentUrl} toggled={urlSuccess} closeCurrent={this.closeCurrent} />
+            <CurrentUrl 
+              url={currentUrl} 
+              toggled={urlSuccess} 
+              closeCurrent={this.closeCurrent}
+              copyToClip={this.copyToClip}
+            />
           </div>
         </FormLayout>
         <UrlsLayout>
@@ -148,14 +157,56 @@ export default class Main extends Component {
               <h2>All Links</h2>
               {isRemoving && <ClipLoader />}
             </header>
-            <UrlList>
+            <UrlListContainer>
               {urlList.map((url, index) => (
                 <UrlDetail key={index} url={url} removeUrl={this.removeUrl} isRemoving={isRemoving} />
               ))}
-            </UrlList>
+            </UrlListContainer>
           </div>
         </UrlsLayout>
       </MainLayout>
     )
   }
 }
+
+
+const UrlListContainer = styled.ul`
+  border: 1px solid ${props => props.theme.gray400};
+  background-color: ${props => props.theme.white};
+
+  li {
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid ${props => props.theme.gray400};
+    position: relative;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    div {
+      flex: 1;
+    }
+
+    a {
+      color: ${props => props.theme.secondary};
+      
+      &:hover {
+        color: ${props => props.theme.secondaryDark}
+      }
+    }
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin: .5rem 0;
+    font-size: 1.2rem;
+  }
+`;

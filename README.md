@@ -11,6 +11,7 @@
 * Using a [proxy](https://cors-anywhere.herokuapp.com/) to get around some CORs issues.
 * All styling is done with styled components
 * Chose to focus on overall UX which and in turn sacrificed time spent on testing.
+* One known bug: the url hellojmac.com can't be deleted because it was created without a slug during development.
 
 ## Todos
 
