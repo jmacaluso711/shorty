@@ -2,22 +2,22 @@
 
 ## Getting started
 
-* Bootstrapped with `create-react-app` using `node v12.4.0`
+* The app was bootstrapped with `create-react-app` using `node v12.4.0`
 * To run locally clone this repo `cd shorty` and `npm start`
 * There's a live version of the app running [here](https://quizzical-brown-0cc6a2.netlify.com/) for reference.
 
 ## Notes
 
-* Using a [proxy](https://cors-anywhere.herokuapp.com/) to get around some CORs issues.
+* I'm using a [proxy](https://cors-anywhere.herokuapp.com/) to get around some CORs issues.
 * All styling is done with styled components
-* Chose to focus on overall UX which and in turn sacrificed time spent on testing.
+* Chose to focus on overall UI/UX and in turn sacrificed time spent on testing.
 * One known bug: the url hellojmac.com can't be deleted because it was created without a slug during development.
 
 ## Todos
 
 * Add tests for all components
 * Add copy to clipboard button
-* More robust error handling and form validation
+* Add more robust error handling and form validation
 
 -----
 
