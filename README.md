@@ -3,7 +3,7 @@
 ## Getting started
 
 * The app was bootstrapped with `create-react-app` using `node v12.4.0`
-* To run locally clone this repo `cd shorty` and `npm start`
+* To run locally clone this repo `cd shorty`, `npm install` and `npm start`
 * There's a live version of the app running [here](https://quizzical-brown-0cc6a2.netlify.com/) for reference.
 
 ## Notes
