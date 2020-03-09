@@ -5,19 +5,27 @@
 * The app was bootstrapped with `create-react-app` using `node v12.4.0`
 * To run locally clone this repo `cd shorty`, `npm install` and `npm start`
 * There's a live version of the app running [here](https://quizzical-brown-0cc6a2.netlify.com/) for reference.
+* Tests can be run using `npm run test` (there is currently only 1 basic test running)
 
 ## Notes
 
 * I'm using a [proxy](https://cors-anywhere.herokuapp.com/) to get around some CORs issues.
-* All styling is done with styled components
-* Chose to focus on overall UI/UX and in turn sacrificed time spent on testing.
+* Focus is on overall UI/UX
+* Tests need to be created for all components
 * One known bug: the url hellojmac.com can't be deleted because it was created without a slug during development.
 
 ## Todos
 
 * Add tests for all components
-* Add copy to clipboard button
+* Add "copy to clipboard" button for current url
 * Add more robust error handling and form validation
+
+## Libraries
+
+* `styled-components@5.0.1` for styling
+* `react-spring@8.0.27` for transitions
+* `react-icons@3.9.0` for svg icons
+* `react-spinners@0.8.0` for loaders
 
 -----
 
