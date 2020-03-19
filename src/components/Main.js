@@ -7,6 +7,22 @@ import UrlDetail from './UrlDetail';
 import CurrentUrl from './CurrentUrl';
 import UrlForm from './UrlForm';
 
+export async function removeUrl(url) {
+  const options = {
+    method: 'DELETE',
+    headers: HEADERS,
+  }
+
+  try {
+    const blob = await fetch(`${PROXY}${API_URL}/links/${url.slug}`, options);
+    if (blob.status === 204) {
+      console.log('removed');
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 
 export default class Main extends Component {
   state = {

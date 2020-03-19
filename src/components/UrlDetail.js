@@ -7,7 +7,7 @@ const UrlDetail = ({ url, removeUrl }) => (
     <div>
       <h3>{url.url}</h3>
       <p><a href={url.short_url}>{url.short_url}</a></p>
-      <p>{url.slug}</p>
+      <p className="url-detail-slug">{url.slug}</p>
     </div>
     <ButtonIcon onClick={() => removeUrl(url)}>
       <AiFillDelete />

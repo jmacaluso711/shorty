@@ -48,4 +48,6 @@ const ButtonIcon = styled.button`
   }
 `;
 
+ButtonIcon.displayName = 'ButtonIcon';
+
 export {ButtonPrimary, ButtonIcon};
